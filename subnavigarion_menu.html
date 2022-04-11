@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .subnav {
+            float: left;
+            overflow: hidden;
+        }
+
+        .subnav .subnavbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover, .subnav:hover .subnavbtn {
+            background-color: red;
+        }
+
+        .subnav-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            background-color: red;
+            width: 80%;
+            margin: 0% 10%;
+            z-index: 1;
+        }
+
+        .subnav-content a {
+            float: left;
+            color: white;
+            text-decoration: none;
+        }
+
+        .subnav-content a:hover {
+            background-color: #eee;
+            color: black;
+        }
+
+        .subnav:hover .subnav-content {
+            display: block;
+        }
+        #g {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">HOME</a>
+        <div class="subnav">
+            <button class="subnavbtn">ABOUT</button>
+            <div class="subnav-content">
+                <div id="g">
+                    <div>
+                        <a href="#company"><h1>Company</h1></a>
+                        <a href="#team"><h1>Team</h1></a>
+                        <a href="#careers"><h1>careers</h1></a>
+                    </div>
+                    <div>
+                        <a href="#company">Company</a>
+                        <a href="#team">Team</a>
+                        <a href="#careers">careers</a>
+                    </div>
+                    <div>
+                        <a href="#company">Company</a>
+                        <a href="#team">Team</a>
+                        <a href="#careers">careers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn">SERVICES</button>
+            <div class="subnav-content">
+                <a href="#bring">Bring</a>
+                <a href="#delier">Deliver</a>
+                <a href="#package">Package</a>
+                <a href="#express">Express</a>
+            </div>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn">PARTNERS</button>
+            <div class="subnav-content">
+                <a href="#link1">link 1</a>
+                <a href="#link2">link 2</a>
+                <a href="#link3">link 3</a>
+            </div>
+        </div>
+        <a href="#contact">CONTACT</a>
+    </div>
+</body>
+</html>
