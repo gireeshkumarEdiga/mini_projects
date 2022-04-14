@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        img {
+            vertical-align: middle;
+        }
+
+        .slideshow {
+            display: none;
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top:50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .text {
+            color : black;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+ 
+        .numbers {
+            color: black;
+            font-size: 20px;
+            padding: 8px 12px;
+            position:absolute;
+            top:0;
+        }  
+
+        .dot {
+            cursor: pointer;
+            height: 20px;
+            width: 20px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display:inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1;}
+        }
+
+        @media only screen and (max-width:300px){
+            .prev, .next, .text {
+                font-size: 11px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slideshow fade">
+            <div class="numbers">1/5</div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwmnBJkNMo53Vawu6osejg2ogAwTfji4htHQ&usqp=CAU"; style="width:100%"/>
+            <div class="text">Nithya Menon</div>
+        </div>
+        <div class="slideshow fade">
+            <div class="slideshow fade">
+                <div class="numbers">2/5</div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAa7tx-zVa18qe7b1Z0TroiRhPEOIn2dXUDw&usqp=CAU"; style="width:100%"/>
+                <div class="text">Nithya Menon</div>
+            </div>
+        </div>
+        <div class="slideshow fade">
+            <div class="slideshow fade">
+                <div class="numbers">3/5</div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4lFXYLGp_7mKz2p_oLFu1JCFmOesgOU6FYQ&usqp=CAU"; style="width:100%"/>
+                <div class="text">Nithya Menon</div>
+            </div>
+        </div>
+        <div class="slideshow fade">
+            <div class="slideshow fade">
+                <div class="numbers">4/5</div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0s86B63XygWCExawIBMBgWX7IdkxV9aL0LQ&usqp=CAU"; style="width:100%"/>
+                <div class="text">Nithya Menon</div>
+            </div>
+        </div>
+        <div class="slideshow fade">
+            <div class="slideshow fade">
+                <div class="numbers">5/5</div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW-gprwZE4fKA3bBDUf1_uSBN0lkA4W6UPLg&usqp=CAU"; style="width:100%"/>
+                <div class="text">Nithya Menon</div>
+            </div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br />
+
+    <div style="text-align:center;">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex +=n );
+    }
+
+    function currentSlide(n){
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n){
+        let i;
+        let slides = document.getElementsByClassName("slideshow");
+        let dots = document.getElementsByClassName("dots");
+
+        if(n>slides.length) {
+            slideIndex = 1;
+        }
+
+        if(n<1) {
+            slideIndex = slides.length;
+        }
+
+        for(let i=0; i<slides.length; i++){
+            slides[i].style.display = "none";
+        }
+
+        for(let i=0; i<dots.length; i++){
+            dots[i].className = dots[i].className.replace(" active ","");
+        }
+
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active ";
+    }
+
+</script>
